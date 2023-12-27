@@ -29,7 +29,7 @@
             <%= link_to "Users", user_path(current_user.id), class: "nav-link text-light" %>
           </li>
           <li>
-            <%= link_to "Books", book_path, class: "nav-link text-light" %>
+            <%= link_to "Books", book_path(current_user.id), class: "nav-link text-light" %>
           </li>
           <li>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-light' %>
@@ -55,7 +55,7 @@
 </header>
 
 <main>
-  <p id="notice"></p>
+  <p><%= flash[:notice] %></p>
     <%= yield %>
 </main>
 
