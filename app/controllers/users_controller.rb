@@ -7,12 +7,14 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @book = Book.new
     @books = @user.books.all
   end
 
   def edit
     @user = User.find(params[:id])
     if @user == current_user
+    else
       redirect_to user_path(current_user.id)
     end
   end
@@ -30,13 +32,13 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :introduction, :profile_image)
+    params.require(:user).permit(:name, :introduction, :profile_image, :book)
   end
 
   def is_matching_login_user
     user = User.find(params[:id])
     unless user.id == current_user.id
-      redirect_to user_path(@user.id)
+      redirect_to edit_user_path(@user.id)
     end
   end
 
