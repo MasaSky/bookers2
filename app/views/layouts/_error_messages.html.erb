@@ -1,0 +1,10 @@
+<% if @book.errors.any? %>
+  <% error_count = @book.errors.count %>
+  <h2><%= error_count %> <%= 'error'.pluralize(error_count) %> prohibited this obj from being saved:</h2>
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<p>確認</p>
