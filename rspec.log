@@ -102,7 +102,7 @@ Userモデルのテスト
   投稿一覧画面のテスト
     表示内容の確認
 [32m      URLが正しい[0m
-[31m      自分と他人の画像のリンク先が正しい (FAILED - 4)[0m
+[32m      自分と他人の画像のリンク先が正しい[0m
 [32m      自分の投稿と他人の投稿のタイトルのリンク先がそれぞれ正しい[0m
 [32m      自分の投稿と他人の投稿のオピニオンが表示される[0m
     サイドバーの確認
@@ -120,52 +120,7 @@ Userモデルのテスト
   自分の投稿詳細画面のテスト
     表示内容の確認
 [32m      URLが正しい[0m
-[32m      「Book detail」と表示される[0m
-[32m      ユーザ画像・名前のリンク先が正しい[0m
-[32m      投稿のtitleが表示される[0m
-[32m      投稿のbodyが表示される[0m
-[32m      投稿の編集リンクが表示される[0m
-[32m      投稿の削除リンクが表示される[0m
-    サイドバーの確認
-[32m      自分の名前と紹介文が表示される[0m
-[32m      自分のユーザ編集画面へのリンクが存在する[0m
-[32m      「New book」と表示される[0m
-[32m      titleフォームが表示される[0m
-[32m      titleフォームに値が入っていない[0m
-[32m      bodyフォームが表示される[0m
-[32m      bodyフォームに値が入っていない[0m
-[32m      Create Bookボタンが表示される[0m
-    投稿成功のテスト
-[32m      自分の新しい投稿が正しく保存される[0m
-    編集リンクのテスト
-[32m      編集画面に遷移する[0m
-    削除リンクのテスト
-[32m      application.html.erbにjavascript_pack_tagを含んでいる[0m
-[32m      正しく削除される[0m
-[31m      リダイレクト先が、投稿一覧画面になっている (FAILED - 5)[0m
-  自分の投稿編集画面のテスト
-    表示の確認
-[32m      URLが正しい[0m
-[32m      「Editing Book」と表示される[0m
-[32m      title編集フォームが表示される[0m
-[32m      body編集フォームが表示される[0m
-[32m      Update Bookボタンが表示される[0m
-[32m      Showリンクが表示される[0m
-[32m      Backリンクが表示される[0m
-    編集成功のテスト
-[32m      titleが正しく更新される[0m
-[32m      bodyが正しく更新される[0m
-[32m      リダイレクト先が、更新した投稿の詳細画面になっている[0m
-  ユーザ一覧画面のテスト
-    表示内容の確認
-[32m      URLが正しい[0m
-[32m      自分と他人の画像が表示される: fallbackの画像がサイドバーの1つ＋一覧(2人)の2つの計3つ存在する[0m
-[32m      自分と他人の名前がそれぞれ表示される[0m
-[32m      自分と他人のshowリンクがそれぞれ表示される[0m
-    サイドバーの確認
-[32m      自分の名前と紹介文が表示される[0m
-[32m      自分のユーザ編集画面へのリンクが存在する[0m
-[32m      「New book」と表示される[0m
+[31m      「Book detail」と表示される (FAILED - 4)[0m
 
 Failures:
 
@@ -211,28 +166,96 @@ Failures:
      [31m  expected to find link "" with href "/home/about" but there were no matches[0m
      [36m# ./spec/system/01_before_login_spec.rb:259:in `block (4 levels) in <main>'[0m
 
-  4) [STEP2] ユーザログイン後のテスト 投稿一覧画面のテスト 表示内容の確認 自分と他人の画像のリンク先が正しい
-     [31mFailure/Error: expect(page).to have_link '', href: user_path(other_book.user)[0m
-     [31m  expected to find link "" with href "/users/2" but there were no matches[0m
-     [36m# ./spec/system/02_after_login_spec.rb:52:in `block (4 levels) in <main>'[0m
-
-  5) [STEP2] ユーザログイン後のテスト 自分の投稿詳細画面のテスト 削除リンクのテスト リダイレクト先が、投稿一覧画面になっている
-     [31mFailure/Error: expect(current_path).to eq '/books'[0m
+  4) [STEP2] ユーザログイン後のテスト 自分の投稿詳細画面のテスト 表示内容の確認 「Book detail」と表示される
+     [31mFailure/Error: profile_image.variant(resize_to_limit: [width, height]).processed[0m
      [31m[0m
-     [31m  expected: "/books"[0m
-     [31m       got: "/users/1"[0m
-     [31m[0m
-     [31m  (compared using ==)[0m
-     [36m# ./spec/system/02_after_login_spec.rb:207:in `block (4 levels) in <main>'[0m
+     [31mActionView::Template::Error:[0m
+     [31m  `magick convert /tmp/ActiveStorage-1-20231231-13044-gxxqr5.jpeg[0] -auto-orient -resize 100x100> /tmp/image_processing20231231-13044-cii0sy.jpeg` failed with status: 2 and error:[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/mini_magick-4.12.0/lib/mini_magick/shell.rb:17:in `run'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/mini_magick-4.12.0/lib/mini_magick/tool.rb:92:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/image_processing-1.12.2/lib/image_processing/mini_magick.rb:56:in `save_image'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/image_processing-1.12.2/lib/image_processing/processor.rb:23:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/image_processing-1.12.2/lib/image_processing/pipeline.rb:50:in `call_processor'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/image_processing-1.12.2/lib/image_processing/pipeline.rb:28:in `block in call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/image_processing-1.12.2/lib/image_processing/pipeline.rb:64:in `create_tempfile'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/image_processing-1.12.2/lib/image_processing/pipeline.rb:27:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/image_processing-1.12.2/lib/image_processing/builder.rb:14:in `block in call!'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/image_processing-1.12.2/lib/image_processing/builder.rb:21:in `instrument'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/image_processing-1.12.2/lib/image_processing/builder.rb:13:in `call!'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/image_processing-1.12.2/lib/image_processing/chainable.rb:60:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/activestorage-6.1.7.6/lib/active_storage/transformers/image_processing_transformer.rb:25:in `process'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/activestorage-6.1.7.6/lib/active_storage/transformers/transformer.rb:22:in `transform'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/activestorage-6.1.7.6/app/models/active_storage/variation.rb:56:in `block in transform'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/activestorage-6.1.7.6/app/models/active_storage/variation.rb:55:in `transform'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/activestorage-6.1.7.6/app/models/active_storage/variant_with_record.rb:35:in `block in transform_blob'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/activestorage-6.1.7.6/lib/active_storage/downloader.rb:15:in `block in open'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/activestorage-6.1.7.6/lib/active_storage/downloader.rb:24:in `open_tempfile'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/activestorage-6.1.7.6/lib/active_storage/downloader.rb:12:in `open'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/activestorage-6.1.7.6/lib/active_storage/service.rb:90:in `open'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/activestorage-6.1.7.6/app/models/active_storage/blob.rb:276:in `open'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/activestorage-6.1.7.6/app/models/active_storage/variant_with_record.rb:34:in `transform_blob'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/activestorage-6.1.7.6/app/models/active_storage/variant_with_record.rb:16:in `process'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/activestorage-6.1.7.6/app/models/active_storage/variant_with_record.rb:11:in `processed'[0m
+     [36m# ./app/models/user.rb:17:in `get_profile_image'[0m
+     [36m# ./app/views/users/_user_info.html.erb:2:in `_app_views_users__user_info_html_erb___2498940552493394739_24400'[0m
+     [36m# ./app/views/users/show.html.erb:5:in `_app_views_users_show_html_erb___4323926487306565361_24360'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/actiontext-6.1.7.6/lib/action_text/rendering.rb:20:in `with_renderer'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/actiontext-6.1.7.6/lib/action_text/engine.rb:59:in `block (4 levels) in <class:Engine>'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/warden-1.2.9/lib/warden/manager.rb:36:in `block in call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/warden-1.2.9/lib/warden/manager.rb:34:in `catch'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/warden-1.2.9/lib/warden/manager.rb:34:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/rack-2.2.8/lib/rack/tempfile_reaper.rb:15:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/rack-2.2.8/lib/rack/etag.rb:27:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/rack-2.2.8/lib/rack/conditional_get.rb:27:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/rack-2.2.8/lib/rack/head.rb:12:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/rack-2.2.8/lib/rack/session/abstract/id.rb:266:in `context'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/rack-2.2.8/lib/rack/session/abstract/id.rb:260:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/railties-6.1.7.6/lib/rails/rack/logger.rb:37:in `call_app'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/railties-6.1.7.6/lib/rails/rack/logger.rb:26:in `block in call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/railties-6.1.7.6/lib/rails/rack/logger.rb:26:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/rack-2.2.8/lib/rack/method_override.rb:24:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/rack-2.2.8/lib/rack/runtime.rb:22:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/rack-2.2.8/lib/rack/sendfile.rb:110:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/railties-6.1.7.6/lib/rails/engine.rb:539:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/rack-2.2.8/lib/rack/urlmap.rb:74:in `block in call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/rack-2.2.8/lib/rack/urlmap.rb:58:in `each'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/rack-2.2.8/lib/rack/urlmap.rb:58:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/rack-2.2.8/lib/rack/builder.rb:244:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/rack-test-2.1.0/lib/rack/test.rb:360:in `process_request'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/rack-test-2.1.0/lib/rack/test.rb:163:in `custom_request'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/rack-test-2.1.0/lib/rack/test.rb:112:in `get'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/capybara-3.39.2/lib/capybara/rack_test/browser.rb:80:in `process'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/capybara-3.39.2/lib/capybara/rack_test/browser.rb:63:in `block in process_and_follow_redirects'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/capybara-3.39.2/lib/capybara/rack_test/browser.rb:58:in `times'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/capybara-3.39.2/lib/capybara/rack_test/browser.rb:58:in `process_and_follow_redirects'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/capybara-3.39.2/lib/capybara/rack_test/browser.rb:38:in `submit'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/capybara-3.39.2/lib/capybara/rack_test/form.rb:57:in `submit'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/capybara-3.39.2/lib/capybara/rack_test/node.rb:69:in `click'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/capybara-3.39.2/lib/capybara/rack_test/node.rb:132:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/capybara-3.39.2/lib/capybara/rack_test/node.rb:132:in `click'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/capybara-3.39.2/lib/capybara/node/element.rb:172:in `block in click'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/capybara-3.39.2/lib/capybara/node/element.rb:608:in `block in perform_click_action'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/capybara-3.39.2/lib/capybara/node/base.rb:84:in `synchronize'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/capybara-3.39.2/lib/capybara/node/element.rb:608:in `perform_click_action'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/capybara-3.39.2/lib/capybara/node/element.rb:171:in `click'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/capybara-3.39.2/lib/capybara/node/actions.rb:58:in `click_button'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/capybara-3.39.2/lib/capybara/session.rb:773:in `click_button'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/capybara-3.39.2/lib/capybara/dsl.rb:52:in `call'[0m
+     [36m# /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/capybara-3.39.2/lib/capybara/dsl.rb:52:in `click_button'[0m
+     [36m# ./spec/system/02_after_login_spec.rb:13:in `block (2 levels) in <main>'[0m
+     [36m# ------------------[0m
+     [36m# --- Caused by: ---[0m
+     [36m# MiniMagick::Error:[0m
+     [36m#   `magick convert /tmp/ActiveStorage-1-20231231-13044-gxxqr5.jpeg[0] -auto-orient -resize 100x100> /tmp/image_processing20231231-13044-cii0sy.jpeg` failed with status: 2 and error:[0m
+     [36m#   /home/ec2-user/.rvm/gems/ruby-3.2.2/gems/mini_magick-4.12.0/lib/mini_magick/shell.rb:17:in `run'[0m
 
-Finished in 29.08 seconds (files took 4.56 seconds to load)
-[31m110 examples, 5 failures[0m
+Finished in 12 seconds (files took 3.74 seconds to load)
+[31m75 examples, 4 failures[0m
 
 Failed examples:
 
 [31mrspec ./spec/system/01_before_login_spec.rb:38[0m [36m# [STEP1] ユーザログイン前のテスト アバウト画面のテスト 表示内容の確認 URLが正しい[0m
 [31mrspec ./spec/system/01_before_login_spec.rb:89[0m [36m# [STEP1] ユーザログイン前のテスト ヘッダーのテスト: ログインしていない場合 リンクの内容を確認 Aboutを押すと、アバウト画面に遷移する[0m
 [31mrspec ./spec/system/01_before_login_spec.rb:258[0m [36m# [STEP1] ユーザログイン前のテスト ユーザログアウトのテスト ログアウト機能のテスト 正しくログアウトできている: ログアウト後のリダイレクト先においてAbout画面へのリンクが存在する[0m
-[31mrspec ./spec/system/02_after_login_spec.rb:50[0m [36m# [STEP2] ユーザログイン後のテスト 投稿一覧画面のテスト 表示内容の確認 自分と他人の画像のリンク先が正しい[0m
-[31mrspec ./spec/system/02_after_login_spec.rb:206[0m [36m# [STEP2] ユーザログイン後のテスト 自分の投稿詳細画面のテスト 削除リンクのテスト リダイレクト先が、投稿一覧画面になっている[0m
+[31mrspec ./spec/system/02_after_login_spec.rb:117[0m [36m# [STEP2] ユーザログイン後のテスト 自分の投稿詳細画面のテスト 表示内容の確認 「Book detail」と表示される[0m
 
