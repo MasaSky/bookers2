@@ -2,6 +2,15 @@
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h1>Editing Book</h1>
+      <% if @book.errors.any? %>
+        <% error_count = @book.errors.count %>
+        <h2><%= error_count %> <%= 'error'.pluralize(error_count) %> prohibited this obj from being saved:</h2>
+        <ul>
+        <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+        </ul>
+      <% end %>
       <%= form_with model: @book do |f| %>
         <div class="form-group">
         <label for="book_title">Title</label>
